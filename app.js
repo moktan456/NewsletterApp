@@ -30,10 +30,10 @@ app.get("/",(req,res)=>{
 //             },
 //      };
 //      const jsonData = JSON.stringify(data);
-//      const url="https://us14.api.mailchimp.com/3.0.74/lists/8041b6b1ac";
+//      const url="";
 //      const options = {
 //          method:"POST",
-//          auth:"Nima:f45c07cf2dd7d45af20f0b083aba6261-us14"
+//          auth:"Nima:"
 //      };
 //      const request = https.request(url, options, (response)=>{
 //          response.on(data, function(data){
@@ -51,12 +51,12 @@ app.post("/",(req,res)=>{
     const lName = req.body.lName;
     const email = req.body.email;
     client.setConfig({
-        apiKey: "f45c07cf2dd7d45af20f0b083aba6261-us14",
-        server: "us14",
+        apiKey: "",
+        server: "",
       });
     const run = async () => {
         try{
-            const response = await client.lists.addListMember("8041b6b1ac",
+            const response = await client.lists.addListMember("",
             {
                 email_address: email,
                 status: "subscribed",
@@ -95,9 +95,3 @@ app.listen(process.env.PORT || 3000,(req,res)=>{
     console.log("Server started at port 3000");
 });
 
-//List ID
-//8041b6b1ac
-
-//API
-//f45c07cf2dd7d45af20f0b083aba6261-us14
-//const url="https://us14.api.mailchimp.com/3.0.74/lists/8041b6b1ac";
